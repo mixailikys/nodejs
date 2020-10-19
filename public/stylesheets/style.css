@@ -12,3 +12,9 @@ ul {
 li form {
 	display: inline-block;
 }
+.hide-1, .hide-2{
+	display: none;
+}
+a {
+	margin-right: 5px;
+}

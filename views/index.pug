@@ -4,10 +4,24 @@ block content
     form(method='POST')
         input(type='text' id='inputText' name='text')
         input(type='submit')
+    form(method='GET' id='sorting')
+        input(type='radio' name='sort' value='id-inc' id='sort1' checked = val == 'id-inc' ? "checked" : undefined)
+        input(type='radio' name='sort' value='id-dec' id='sort2' checked = val == 'id-dec' ? "checked" : undefined)
+        input(type='radio' name='sort' value='text-inc' id='sort3' checked = val == 'text-inc' ? "checked" : undefined)
+        input(type='radio' name='sort' value='text-dec' id='sort4' checked = val == 'text-dec' ? "checked" : undefined)
+        input(type='submit')
     ul
         each elem in elems
             li
                 | #{elem.id} 
-                | #{elem.text}
+                span.text #{elem.text}
                 form(action='/delete/'+elem.id method='POST')
                     input(type='submit' value='Del')
+                input(type='submit' value='Edit' class='edit')
+                span.hide-1 #{elem.id}
+    - for (var i = 1; i <= pages; ++i) {
+        a(href='?page='+i) #{i}
+    - }
+    p #{elements}
+
+    script(src='/script.js')
