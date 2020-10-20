@@ -20,7 +20,7 @@ block content
                 input(type='submit' value='Edit' class='edit')
                 span.hide-1 #{elem.id}
     - for (var i = 1; i <= pages; ++i) {
-        a(href='?page='+i) #{i}
+        a(href='?sort='+val+'&page='+i) #{i}
     - }
     p #{elements}
 
